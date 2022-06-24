@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			var index = 0;
+			function changeImg(){
+				var img = document.getElementById("img1");
+				// 计算当前要切换到第几张图片
+				var curIndex = index % 4; //0 1 2 3
+				img.src = "./img/"+curIndex+".jpg";
+				index = index + 1;
+			}
+			function init(){
+				setInterval("changeImg()",2000);
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		<img src="./img/0.jpg" id="img1" width="100%"/>
+	</body>
+</html>
+
