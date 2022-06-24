@@ -11,24 +11,20 @@
             }
         </style>
         <!--https://blog.csdn.net/woaixuexihhh/article/details/84036762-->
+        <script src="my_helper.js"></script>
         <script>
+            /*
+            // this has to use node.js
             let requireModule = require.context(
               "./img",
               true, // Load files recursively. Pass false to skip recursion.
               /^\.\/.*\.jped$/ // Match files ending with .jped
             );
-
-            console.log("hello");
-
-            let imagesNameArr = [];
-            for (var i = 0; i < requireModule.keys().length; i++) {
-                imagesNameArr .push(requireModule.keys()[i].substr(2, requireModule.keys()[i].length));
-
-            console.log(imagesNameArr);
+            */
 
             var index = 0;
             function changeImg(){
-                var img = document.getElementById("img1");
+                var img = document.getElementById("showimage");
                 // 计算当前要切换到第几张图片
                 var curIndex = index % 4; //0 1 2 3
                 img.src = "./img/"+curIndex+".jpeg";
@@ -40,8 +36,7 @@
         </script>
     </head>
     <body onload="init()">
-        <!--img src="./img/0.jpeg" id="img1" width="100%"/-->
-        <img src="./img/0.jpeg" id="img1" height=700px/>
+        <img src="./img/0.jpeg" id="showimage" height=700px/>
     </body>
 </html>
 
