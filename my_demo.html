@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
+        <!--https://blog.csdn.net/woaixuexihhh/article/details/84036762-->
+        <script>
+            let requireModule = require.context(
+              "./img",
+              true, // Load files recursively. Pass false to skip recursion.
+              /^\.\/.*\.jped$/ // Match files ending with .jped
+            );
+
+            console.log("hello");
+
+            let imagesNameArr = [];
+            for (var i = 0; i < requireModule.keys().length; i++) {
+                imagesNameArr .push(requireModule.keys()[i].substr(2, requireModule.keys()[i].length));
+
+            console.log(imagesNameArr);
+
+            var index = 0;
+            function changeImg(){
+                var img = document.getElementById("img1");
+                // 计算当前要切换到第几张图片
+                var curIndex = index % 4; //0 1 2 3
+                img.src = "./img/"+curIndex+".jpeg";
+                index = index + 1;
+            }
+            function init(){
+                setInterval("changeImg()",2000);
+            }
+        </script>
+    </head>
+    <body onload="init()">
+        <!--img src="./img/0.jpeg" id="img1" width="100%"/-->
+        <img src="./img/0.jpeg" id="img1" height=700px/>
+    </body>
+</html>
+
