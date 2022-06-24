@@ -4,7 +4,19 @@
         <meta charset="UTF-8">
         <title></title>
         <style>
-            img {
+            .imgHolder {
+                position: relative;
+            }
+            .imgHolder span {
+                position: absolute;
+                right: 50%;
+                top: 660px;
+                /*font-size: 30px;*/
+                font-family: 'Ubuntu', sans-serif;
+                color: #fff;
+                opacity:  70%;
+            }
+            .imgHolder img {
                 display: block;
                 margin-left: auto;
                 margin-right: auto;
@@ -15,11 +27,13 @@
             var index = 0;
             function changeImg(){
                 var img = document.getElementById("showimage");
+                var txt = document.getElementById("showtext");
                 // 计算当前要切换到第几张图片
                 // var curIndex = index % 4; //0 1 2 3
                 // img.src = "./img/"+curIndex+".jpeg";
-                var curIndex = index % ImageList.length;
-                img.src = ImageList[curIndex];
+                index = index % ImageList.length;
+                img.src = ImageList[index];
+                txt.innerHTML = LabelList[index];
                 index = index + 1;
             }
             function init(){
@@ -28,7 +42,11 @@
         </script>
     </head>
     <body onload="init()">
-        <img src="./img/0.jpeg" id="showimage" height=700px/>
+        <!--img src="./img/0.jpeg" id="showimage_old" height=700px/-->
+        <div class="imgHolder">
+            <img src="./img/0.jpeg" id="showimage" height=700px/>
+            <span id="showtext" text-color="#fff">Here's the overlay text 0</span>
+        </div>
     </body>
 </html>
 
