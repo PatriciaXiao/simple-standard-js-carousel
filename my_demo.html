@@ -26,8 +26,10 @@
             function changeImg(){
                 var img = document.getElementById("showimage");
                 // 计算当前要切换到第几张图片
-                var curIndex = index % 4; //0 1 2 3
-                img.src = "./img/"+curIndex+".jpeg";
+                // var curIndex = index % 4; //0 1 2 3
+                // img.src = "./img/"+curIndex+".jpeg";
+                var curIndex = index % ImageList.length;
+                img.src = ImageList[curIndex];
                 index = index + 1;
             }
             function init(){
