@@ -28,21 +28,18 @@
             function changeImg(){
                 var img = document.getElementById("showimage");
                 var txt = document.getElementById("showtext");
-                // 计算当前要切换到第几张图片
-                // var curIndex = index % 4; //0 1 2 3
-                // img.src = "./img/"+curIndex+".jpeg";
+                // compute the iterative index
                 index = index % ImageList.length;
                 img.src = ImageList[index];
                 txt.innerHTML = LabelList[index];
                 index = index + 1;
             }
             function init(){
-                setInterval("changeImg()",2000);
+                setInterval("changeImg()", 2000);
             }
         </script>
     </head>
     <body onload="init()">
-        <!--img src="./img/0.jpeg" id="showimage_old" height=700px/-->
         <div class="imgHolder">
             <img src="./img/0.jpeg" id="showimage" height=700px/>
             <span id="showtext" text-color="#fff">Here's the overlay text 0</span>
